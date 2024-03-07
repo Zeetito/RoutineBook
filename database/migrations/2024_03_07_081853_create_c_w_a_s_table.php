@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('c_w_a_s', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('student_id');
+            $table->double('value');
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('academic_year_id')->constrained();
             $table->enum('name', ['1', '2']);
             $table->date('started_at')->unique();
-            $table->date('ended_at');
+            $table->date('ended_at')->nullable();
             $table->boolean('is_active')->default(0);
             $table->timestamps();
         });

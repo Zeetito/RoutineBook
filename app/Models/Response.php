@@ -9,6 +9,13 @@ class Response extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'questionaire_id',
+        'student_id',
+        'body',
+        'score',
+    ];
+
+
 
 }

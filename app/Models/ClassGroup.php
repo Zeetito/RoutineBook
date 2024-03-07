@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class ClassGroup extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'program_id',
+        'year',
+    ];
 }

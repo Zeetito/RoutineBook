@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Semester extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'academic_year_id',
+        'name',
+        'started_at',
+        'ended_at',
+        'is_active',
+    ];
 }

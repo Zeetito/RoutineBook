@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('reactions', function (Blueprint $table) {
             $table->id();
+            $table->integer('commentable_id');
+            $table->string('commentable_type');
+            $table->integer('user_id');
+            $table->string('user_type');
+            $table->string('body');
             $table->timestamps();
         });
     }
