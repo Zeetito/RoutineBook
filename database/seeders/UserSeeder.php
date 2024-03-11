@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class StudentSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,8 @@ class StudentSeeder extends Seeder
     public function run(): void
     {
         //
-        Student::create([
+        // Student user
+        User::create([
             'username' => 'student',
             'firstname' => 'Student-John',
             'lastname' => '',
@@ -25,10 +26,27 @@ class StudentSeeder extends Seeder
             'index_number' => '100000000',
             'email' => 'student@gmail.com',
             'program_id' => '1',
+            'is_staff' => '0',
             'class_group_id' => '1',
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // password
             'remember_token' => Str::random(10),
+           
+        ]);
+
+        // Staff user
+        User::create([
+            'username' => 'staff',
+            'firstname' => 'Staff-John',
+            'lastname' => '',
+            'othername' => 'Staff-Doe',
+            'gender' => 'm',
+            'email' => 'staff@gmail.com',
+            'is_staff' => '1',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'), // password
+            'remember_token' => Str::random(10),
+          
            
         ]);
     }
