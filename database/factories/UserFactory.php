@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Program;
 use Illuminate\Support\Str;
 use Database\Factories\StaffFactory;
 use Database\Factories\StudentFactory;
@@ -20,7 +21,12 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
+            'username' => fake()->unique()->userName,
+            'firstname' => fake()->firstName,
+            'lastname' => fake()->lastName,
+            'othername' => fake()->lastName,
+            'gender' => rand(1, 2) == 1 ? "m" : "f",
+            'is_admin' => '0',
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
@@ -33,24 +39,27 @@ class UserFactory extends Factory
         return $this->state(function (array $attributes) {
             return [
                 // User attributes...
+                'is_staff' => '1',
 
                 // Staff specific attributes using StaffFactory
-                'staff_attributes' => StaffFactory::new()->create()->getAttributes(),
+                // 'staff_attributes' => StaffFactory::new()->create()->getAttributes(),
             ];
         });
     }
 
     public function student()
-        {
-            return $this->state(function (array $attributes) {
-                return [
-                    // User attributes...
+    {
+    return $this->state(function (array $attributes) {
+        return [
+                'identity_number' => $this->faker->unique()->randomNumber(8),
+                'index_number' => $this->faker->unique()->randomNumber(8),
+                'program_id' => Program::all()->random()->id,
+                'class_group_id' => '1',
+                'is_staff' => '0',
 
-                    // Staff specific attributes using StudentFactory
-                    'student_attributes' => StudentFactory::new()->create()->getAttributes(),
-                ];
-            });
-        }
+        ];
+    });
+    }
     /**
      * Indicate that the model's email address should be unverified.
      */

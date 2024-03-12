@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('c_w_a_s', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('academic_year_id');
             $table->double('value');
             $table->timestamps();
         });

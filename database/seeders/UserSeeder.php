@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
         // User::factory()->count(30)->state('student')->create();
         // User::factory()->count(30)->state('staff')->create();
 
-        User::factory()->count(30)->staff()->create();
-        User::factory()->count(30)->student()->create();
+        User::factory()->count(50)->staff()->create();
+        User::factory()->count(500)->student()->create();
     }
 }

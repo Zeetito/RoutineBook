@@ -23,6 +23,9 @@
                         <a href="{{route('permissions')}}">
                             <li>Assign Permissions</li>
                         </a>
+                        <a href="{{route('staff')}}">
+                            <li>All Staff</li>
+                        </a>
                         @endif
 
                     </ul>

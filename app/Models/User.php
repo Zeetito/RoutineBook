@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use App\Models\Permission;
+use App\Models\PermissionUser;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
+use App\Permissions\HasRolesAndPermissions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, HasRolesAndPermissions,Notifiable;
 
     protected $fillable = [
         'username',
@@ -39,6 +42,12 @@ class User extends Authenticatable
     ];
 
 
+    // RELATIONSHIPS
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, "permission_users")
+        ;
+    }
 
 
     // FUNCTION
@@ -46,4 +55,23 @@ class User extends Authenticatable
     public function is_admin(){
         return $this->is_admin == 1;
     }
+
+    // Get user full name
+    public function fullname(){
+        return $this->firstname." ".$this->othername." ".$this->lastname;
+    }
+
+
+    // STATIC FUNCTIONS
+    // Get all staff
+    public static function staff(){
+        return self::where('is_staff',1);
+    }
+
+    // Get all Students
+    public static function students(){
+        return self::where('is_staff',0);
+    }
+
+
 }

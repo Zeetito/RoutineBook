@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Permissions') }}</div>
+                <div class="card-header">{{ __('All Staff') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,21 +17,21 @@
 
                     {{-- Table to show all permissions --}}
                     <div>
-                        <span class="btn btn-info float-end" data-url="{{route('create_permission')}}" data-target="myModal" data-toggle="modal" >Add Permission</span>
+                        {{-- <span class="btn btn-info float-end" data-url="#" data-target="myModal" data-toggle="modal" >Add Permission</span> --}}
                         <table class="table table-stripped datatable">
                             <thead>
                                 <th>Name</th>
-                                <th>Slug</th>
+                                <th>Email</th>
                                 <th>Actions</th>
                             </thead>
 
                             <tbody>
-                                @foreach(App\Models\Permission::all() as $permission)
+                                @foreach(App\Models\User::staff()->get() as $user)
                                     <tr>
-                                        <td>{{$permission->name}}</td>
-                                        <td>{{$permission->slug}}</td>
+                                        <td>{{$user->fullname()}}</td>
+                                        <td>{{$user->email}}</td>
                                         <td>
-                                            <a href="" class="fa fa-pencil">Edit Users</a>
+                                            <a href="{{route('create_permissionuser',['user'=>$user])}}" class="fa fa-pencil">Assign Permission</a>
                                         </td>
                                     </tr>
                                 @endforeach

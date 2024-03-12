@@ -25,7 +25,7 @@ class StaffFactory extends Factory
             'gender' => rand(1, 2) == 1 ? "m" : "f",
             // 'identity_number' => $this->faker->unique()->randomNumber(8),
             // 'index_number' => $this->faker->unique()->randomNumber(8),
-            'email' => $this->faker->unique()->safeEmail,
+            // 'email' => $this->faker->unique()->safeEmail,
             // 'program_id' => Program::all()->random()->id,
             'is_staff' => '1',
             'is_admin' => '0',

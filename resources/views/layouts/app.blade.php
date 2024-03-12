@@ -10,25 +10,26 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.bunny.net"> --}}
+    {{-- <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
 
     {{-- Styles --}}
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
     {{-- <link href="{{ asset("css/bootstrap.css") }}" rel="stylesheet"> --}}
     <link href="{{ asset("css/datatables.css") }}" rel="stylesheet">
-    <link href="{{ asset("css/font-awesome.css") }}" rel="stylesheet">
-
+    
     {{-- JS STYLE --}}
     <script src={{asset("js/jquery-3.6.0.min.js")}}></script>
     <script src={{asset("js/app.js")}}></script>
-    {{-- <script src={{asset("bower_components/bootstrap/dist/js/bootstrap.min.js")}}></script> --}}
-    <script src={{asset("js/bootstrap.min.js")}}></script>
+    {{-- <script src={{asset("js/bootstrap.min.js")}}></script> --}}
     <script src={{asset("js/bootstrap.bundle.min.js")}}></script>
 
     <script src="{{asset("js/popper.js")}}"></script>
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <link href="{{ asset("css/font-awesome.css") }}" rel="stylesheet">
+    <link href="{{ asset("css/font-awesome.css.map") }}" rel="stylesheet">
+    <link href="{{ asset("css/simple-line-icons.css") }}" rel="stylesheet">
 
     {{-- <script src="{{asset("js/bootstrap.js")}}"></script> --}}
     <script src="{{asset("js/jquery.dataTables.min.js")}}"></script>
