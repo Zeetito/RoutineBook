@@ -13,5 +13,11 @@ class Questionaire extends Model
         'name',
         'questionaireable_id',
         'questionaireable_type',
+        'semester_id',
     ];
+    // RELATIONSHIPS
+    // Retrieve the related Model
+    public function questionaireable(){
+        return $this->morphTo();
+    }
 }

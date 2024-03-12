@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
-    use HasFactory;
+    use HasApiTokens, HasFactory, Notifiable;
 
     protected $fillable = [
         'username',
@@ -19,6 +22,7 @@ class User extends Model
         'index_number',
         'email',
         'is_staff',
+        'is_admin',
         'program_id',
         'class_group_id',
         'password',
@@ -33,4 +37,13 @@ class User extends Model
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+
+    // FUNCTION
+    // Check if user is admin
+    public function is_admin(){
+        return $this->is_admin == 1;
+    }
 }

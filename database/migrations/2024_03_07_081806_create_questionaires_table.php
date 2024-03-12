@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('questionaireable_id')->nullable();
             $table->string('questionaireable_type')->nullable();
             $table->boolean('is_active')->default(1);
+            $table->foreignId('semester_id');
             $table->timestamps();
         });
     }

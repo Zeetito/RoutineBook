@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Questionaire;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class College extends Model
 {
@@ -14,4 +15,10 @@ class College extends Model
         'name',
 
     ];
+
+    // RELATIONSHIPS
+    // return related questionaire
+    public function questionaire(){
+        return $this->morphOne(Questionaire::class,'questionaireable')->where('is_active',1);
+    }
 }

@@ -15,6 +15,19 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+
+                    <ul>
+
+                        @if(auth()->user()->is_admin())
+                        <a href="{{route('permissions')}}">
+                            <li>Assign Permissions</li>
+                        </a>
+                        @endif
+
+                    </ul>
+
+
                 </div>
             </div>
         </div>

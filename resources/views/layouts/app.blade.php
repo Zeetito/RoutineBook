@@ -13,8 +13,28 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    {{-- Styles --}}
+    <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
+    {{-- <link href="{{ asset("css/bootstrap.css") }}" rel="stylesheet"> --}}
+    <link href="{{ asset("css/datatables.css") }}" rel="stylesheet">
+    <link href="{{ asset("css/font-awesome.css") }}" rel="stylesheet">
+
+    {{-- JS STYLE --}}
+    <script src={{asset("js/jquery-3.6.0.min.js")}}></script>
+    <script src={{asset("js/app.js")}}></script>
+    {{-- <script src={{asset("bower_components/bootstrap/dist/js/bootstrap.min.js")}}></script> --}}
+    <script src={{asset("js/bootstrap.min.js")}}></script>
+    <script src={{asset("js/bootstrap.bundle.min.js")}}></script>
+
+    <script src="{{asset("js/popper.js")}}"></script>
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+
+    {{-- <script src="{{asset("js/bootstrap.js")}}"></script> --}}
+    <script src="{{asset("js/jquery.dataTables.min.js")}}"></script>
+    <script src="{{asset("js/dataTables.bootstrap5.min.js")}}"></script>
+    <script src="{{asset("js/dataTables.buttons.min.js")}}"></script>
+    <script src="{{asset("js/custom.js")}}"></script>
 </head>
 <body>
     <div id="app">
@@ -73,6 +93,34 @@
         </nav>
 
         <main class="py-4">
+
+             <!-- Modal1 -->
+             <div class="modal fade" data-backdrop="true"  id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content" class="container bg-white">
+                    ...
+                    </div>
+                </div>
+            </div>
+            
+            {{-- Modal2 --}}
+            <div class="modal fade" data-backdrop="true"  id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content" class="container bg-white">
+                    ...
+                    </div>
+                </div>
+            </div>
+
+            {{-- Modal3 --}}
+            <div class="modal fade bd-example-modal-lg" id="myLargeModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="myLargeModal">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    ...
+                  </div>
+                </div>
+            </div>
+
             @yield('content')
         </main>
     </div>

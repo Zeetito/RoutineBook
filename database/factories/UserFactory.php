@@ -2,8 +2,10 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Database\Factories\StaffFactory;
+use Database\Factories\StudentFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\User>
@@ -26,6 +28,29 @@ class UserFactory extends Factory
         ];
     }
 
+    public function staff()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                // User attributes...
+
+                // Staff specific attributes using StaffFactory
+                'staff_attributes' => StaffFactory::new()->create()->getAttributes(),
+            ];
+        });
+    }
+
+    public function student()
+        {
+            return $this->state(function (array $attributes) {
+                return [
+                    // User attributes...
+
+                    // Staff specific attributes using StudentFactory
+                    'student_attributes' => StudentFactory::new()->create()->getAttributes(),
+                ];
+            });
+        }
     /**
      * Indicate that the model's email address should be unverified.
      */

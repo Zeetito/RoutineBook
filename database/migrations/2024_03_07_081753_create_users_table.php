@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('index_number')->unique()->nullable();
             $table->string('email')->unique();
             $table->boolean('is_staff');
+            $table->boolean('is_admin')->default(0);
             $table->foreignId('program_id')->nullable();
             $table->foreignId('class_group_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();

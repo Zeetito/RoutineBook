@@ -14,6 +14,5 @@ class Comment extends Model
         'commentable_type',
         'body',
         'user_id',
-        'user_type',
     ];
 }

@@ -27,6 +27,7 @@ class UserSeeder extends Seeder
             'email' => 'student@gmail.com',
             'program_id' => '1',
             'is_staff' => '0',
+            'is_admin' => '0',
             'class_group_id' => '1',
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // password
@@ -43,11 +44,20 @@ class UserSeeder extends Seeder
             'gender' => 'm',
             'email' => 'staff@gmail.com',
             'is_staff' => '1',
+            'is_admin' => '1',
             'email_verified_at' => now(),
             'password' => bcrypt('password'), // password
             'remember_token' => Str::random(10),
           
            
         ]);
+        
+        // User::factory(30)->states('staff')->create();
+        // User::factory(30)->states('student')->create();
+        // User::factory()->count(30)->state('student')->create();
+        // User::factory()->count(30)->state('staff')->create();
+
+        User::factory()->count(30)->staff()->create();
+        User::factory()->count(30)->student()->create();
     }
 }
